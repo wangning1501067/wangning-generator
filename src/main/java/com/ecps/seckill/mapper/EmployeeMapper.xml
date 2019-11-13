@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecps.seckill.mapper.EmployeeMapper">
+  <resultMap id="BaseResultMap" type="com.ecps.seckill.pojo.Employee">
+    <id column="employee_id" jdbcType="INTEGER" property="employeeId" />
+    <result column="employee_zh_name" jdbcType="VARCHAR" property="employeeZhName" />
+    <result column="employee_code" jdbcType="VARCHAR" property="employeeCode" />
+    <result column="employee_cn_name" jdbcType="VARCHAR" property="employeeCnName" />
+    <result column="employee_password" jdbcType="VARCHAR" property="employeePassword" />
+    <result column="sex" jdbcType="SMALLINT" property="sex" />
+    <result column="mobile_phone" jdbcType="VARCHAR" property="mobilePhone" />
+    <result column="worke_status" jdbcType="SMALLINT" property="workeStatus" />
+    <result column="employee_type" jdbcType="SMALLINT" property="employeeType" />
+    <result column="duty_date" jdbcType="TIMESTAMP" property="dutyDate" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="organization" jdbcType="VARCHAR" property="organization" />
+    <result column="department" jdbcType="VARCHAR" property="department" />
+    <result column="office_location" jdbcType="VARCHAR" property="officeLocation" />
+    <result column="post" jdbcType="INTEGER" property="post" />
+    <result column="app_password" jdbcType="VARCHAR" property="appPassword" />
+    <result column="collection_status" jdbcType="SMALLINT" property="collectionStatus" />
+    <result column="authentication_status" jdbcType="SMALLINT" property="authenticationStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="if_delete" jdbcType="SMALLINT" property="ifDelete" />
+    <result column="authorized_state" jdbcType="SMALLINT" property="authorizedState" />
+    <result column="image_path" jdbcType="VARCHAR" property="imagePath" />
+    <result column="role_id" jdbcType="INTEGER" property="roleId" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="identity_flag" jdbcType="SMALLINT" property="identityFlag" />
+    <result column="account_password" jdbcType="SMALLINT" property="accountPassword" />
+    <result column="active" jdbcType="SMALLINT" property="active" />
+    <result column="app_id" jdbcType="INTEGER" property="appId" />
+    <result column="work_area_str" jdbcType="VARCHAR" property="workAreaStr" />
+    <result column="integral" jdbcType="BIGINT" property="integral" />
+    <result column="integral_update_time" jdbcType="TIMESTAMP" property="integralUpdateTime" />
+    <result column="head_path" jdbcType="VARCHAR" property="headPath" />
+    <result column="employee_status" jdbcType="SMALLINT" property="employeeStatus" />
+    <result column="skill" jdbcType="VARCHAR" property="skill" />
+    <result column="face_author_image" jdbcType="VARCHAR" property="faceAuthorImage" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    employee_id, employee_zh_name, employee_code, employee_cn_name, employee_password, 
+    sex, mobile_phone, worke_status, employee_type, duty_date, email, organization, department, 
+    office_location, post, app_password, collection_status, authentication_status, create_time, 
+    update_time, if_delete, authorized_state, image_path, role_id, create_user, update_user, 
+    identity_flag, account_password, active, app_id, work_area_str, integral, integral_update_time, 
+    head_path, employee_status, skill, face_author_image
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from i_employee
+    where employee_id = #{employeeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from i_employee
+    where employee_id = #{employeeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ecps.seckill.pojo.Employee">
+    insert into i_employee (employee_id, employee_zh_name, employee_code, 
+      employee_cn_name, employee_password, sex, 
+      mobile_phone, worke_status, employee_type, 
+      duty_date, email, organization, 
+      department, office_location, post, 
+      app_password, collection_status, authentication_status, 
+      create_time, update_time, if_delete, 
+      authorized_state, image_path, role_id, 
+      create_user, update_user, identity_flag, 
+      account_password, active, app_id, 
+      work_area_str, integral, integral_update_time, 
+      head_path, employee_status, skill, 
+      face_author_image)
+    values (#{employeeId,jdbcType=INTEGER}, #{employeeZhName,jdbcType=VARCHAR}, #{employeeCode,jdbcType=VARCHAR}, 
+      #{employeeCnName,jdbcType=VARCHAR}, #{employeePassword,jdbcType=VARCHAR}, #{sex,jdbcType=SMALLINT}, 
+      #{mobilePhone,jdbcType=VARCHAR}, #{workeStatus,jdbcType=SMALLINT}, #{employeeType,jdbcType=SMALLINT}, 
+      #{dutyDate,jdbcType=TIMESTAMP}, #{email,jdbcType=VARCHAR}, #{organization,jdbcType=VARCHAR}, 
+      #{department,jdbcType=VARCHAR}, #{officeLocation,jdbcType=VARCHAR}, #{post,jdbcType=INTEGER}, 
+      #{appPassword,jdbcType=VARCHAR}, #{collectionStatus,jdbcType=SMALLINT}, #{authenticationStatus,jdbcType=SMALLINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{ifDelete,jdbcType=SMALLINT}, 
+      #{authorizedState,jdbcType=SMALLINT}, #{imagePath,jdbcType=VARCHAR}, #{roleId,jdbcType=INTEGER}, 
+      #{createUser,jdbcType=INTEGER}, #{updateUser,jdbcType=INTEGER}, #{identityFlag,jdbcType=SMALLINT}, 
+      #{accountPassword,jdbcType=SMALLINT}, #{active,jdbcType=SMALLINT}, #{appId,jdbcType=INTEGER}, 
+      #{workAreaStr,jdbcType=VARCHAR}, #{integral,jdbcType=BIGINT}, #{integralUpdateTime,jdbcType=TIMESTAMP}, 
+      #{headPath,jdbcType=VARCHAR}, #{employeeStatus,jdbcType=SMALLINT}, #{skill,jdbcType=VARCHAR}, 
+      #{faceAuthorImage,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ecps.seckill.pojo.Employee">
+    insert into i_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="employeeId != null">
+        employee_id,
+      </if>
+      <if test="employeeZhName != null">
+        employee_zh_name,
+      </if>
+      <if test="employeeCode != null">
+        employee_code,
+      </if>
+      <if test="employeeCnName != null">
+        employee_cn_name,
+      </if>
+      <if test="employeePassword != null">
+        employee_password,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="mobilePhone != null">
+        mobile_phone,
+      </if>
+      <if test="workeStatus != null">
+        worke_status,
+      </if>
+      <if test="employeeType != null">
+        employee_type,
+      </if>
+      <if test="dutyDate != null">
+        duty_date,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="organization != null">
+        organization,
+      </if>
+      <if test="department != null">
+        department,
+      </if>
+      <if test="officeLocation != null">
+        office_location,
+      </if>
+      <if test="post != null">
+        post,
+      </if>
+      <if test="appPassword != null">
+        app_password,
+      </if>
+      <if test="collectionStatus != null">
+        collection_status,
+      </if>
+      <if test="authenticationStatus != null">
+        authentication_status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="ifDelete != null">
+        if_delete,
+      </if>
+      <if test="authorizedState != null">
+        authorized_state,
+      </if>
+      <if test="imagePath != null">
+        image_path,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="identityFlag != null">
+        identity_flag,
+      </if>
+      <if test="accountPassword != null">
+        account_password,
+      </if>
+      <if test="active != null">
+        active,
+      </if>
+      <if test="appId != null">
+        app_id,
+      </if>
+      <if test="workAreaStr != null">
+        work_area_str,
+      </if>
+      <if test="integral != null">
+        integral,
+      </if>
+      <if test="integralUpdateTime != null">
+        integral_update_time,
+      </if>
+      <if test="headPath != null">
+        head_path,
+      </if>
+      <if test="employeeStatus != null">
+        employee_status,
+      </if>
+      <if test="skill != null">
+        skill,
+      </if>
+      <if test="faceAuthorImage != null">
+        face_author_image,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="employeeId != null">
+        #{employeeId,jdbcType=INTEGER},
+      </if>
+      <if test="employeeZhName != null">
+        #{employeeZhName,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeCode != null">
+        #{employeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeCnName != null">
+        #{employeeCnName,jdbcType=VARCHAR},
+      </if>
+      <if test="employeePassword != null">
+        #{employeePassword,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=SMALLINT},
+      </if>
+      <if test="mobilePhone != null">
+        #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="workeStatus != null">
+        #{workeStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="employeeType != null">
+        #{employeeType,jdbcType=SMALLINT},
+      </if>
+      <if test="dutyDate != null">
+        #{dutyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="organization != null">
+        #{organization,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null">
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="officeLocation != null">
+        #{officeLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="post != null">
+        #{post,jdbcType=INTEGER},
+      </if>
+      <if test="appPassword != null">
+        #{appPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="collectionStatus != null">
+        #{collectionStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="authenticationStatus != null">
+        #{authenticationStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifDelete != null">
+        #{ifDelete,jdbcType=SMALLINT},
+      </if>
+      <if test="authorizedState != null">
+        #{authorizedState,jdbcType=SMALLINT},
+      </if>
+      <if test="imagePath != null">
+        #{imagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=INTEGER},
+      </if>
+      <if test="identityFlag != null">
+        #{identityFlag,jdbcType=SMALLINT},
+      </if>
+      <if test="accountPassword != null">
+        #{accountPassword,jdbcType=SMALLINT},
+      </if>
+      <if test="active != null">
+        #{active,jdbcType=SMALLINT},
+      </if>
+      <if test="appId != null">
+        #{appId,jdbcType=INTEGER},
+      </if>
+      <if test="workAreaStr != null">
+        #{workAreaStr,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null">
+        #{integral,jdbcType=BIGINT},
+      </if>
+      <if test="integralUpdateTime != null">
+        #{integralUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="headPath != null">
+        #{headPath,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeStatus != null">
+        #{employeeStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="skill != null">
+        #{skill,jdbcType=VARCHAR},
+      </if>
+      <if test="faceAuthorImage != null">
+        #{faceAuthorImage,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ecps.seckill.pojo.Employee">
+    update i_employee
+    <set>
+      <if test="employeeZhName != null">
+        employee_zh_name = #{employeeZhName,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeCode != null">
+        employee_code = #{employeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeCnName != null">
+        employee_cn_name = #{employeeCnName,jdbcType=VARCHAR},
+      </if>
+      <if test="employeePassword != null">
+        employee_password = #{employeePassword,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=SMALLINT},
+      </if>
+      <if test="mobilePhone != null">
+        mobile_phone = #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="workeStatus != null">
+        worke_status = #{workeStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="employeeType != null">
+        employee_type = #{employeeType,jdbcType=SMALLINT},
+      </if>
+      <if test="dutyDate != null">
+        duty_date = #{dutyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="organization != null">
+        organization = #{organization,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null">
+        department = #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="officeLocation != null">
+        office_location = #{officeLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="post != null">
+        post = #{post,jdbcType=INTEGER},
+      </if>
+      <if test="appPassword != null">
+        app_password = #{appPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="collectionStatus != null">
+        collection_status = #{collectionStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="authenticationStatus != null">
+        authentication_status = #{authenticationStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifDelete != null">
+        if_delete = #{ifDelete,jdbcType=SMALLINT},
+      </if>
+      <if test="authorizedState != null">
+        authorized_state = #{authorizedState,jdbcType=SMALLINT},
+      </if>
+      <if test="imagePath != null">
+        image_path = #{imagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=INTEGER},
+      </if>
+      <if test="identityFlag != null">
+        identity_flag = #{identityFlag,jdbcType=SMALLINT},
+      </if>
+      <if test="accountPassword != null">
+        account_password = #{accountPassword,jdbcType=SMALLINT},
+      </if>
+      <if test="active != null">
+        active = #{active,jdbcType=SMALLINT},
+      </if>
+      <if test="appId != null">
+        app_id = #{appId,jdbcType=INTEGER},
+      </if>
+      <if test="workAreaStr != null">
+        work_area_str = #{workAreaStr,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null">
+        integral = #{integral,jdbcType=BIGINT},
+      </if>
+      <if test="integralUpdateTime != null">
+        integral_update_time = #{integralUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="headPath != null">
+        head_path = #{headPath,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeStatus != null">
+        employee_status = #{employeeStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="skill != null">
+        skill = #{skill,jdbcType=VARCHAR},
+      </if>
+      <if test="faceAuthorImage != null">
+        face_author_image = #{faceAuthorImage,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where employee_id = #{employeeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ecps.seckill.pojo.Employee">
+    update i_employee
+    set employee_zh_name = #{employeeZhName,jdbcType=VARCHAR},
+      employee_code = #{employeeCode,jdbcType=VARCHAR},
+      employee_cn_name = #{employeeCnName,jdbcType=VARCHAR},
+      employee_password = #{employeePassword,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=SMALLINT},
+      mobile_phone = #{mobilePhone,jdbcType=VARCHAR},
+      worke_status = #{workeStatus,jdbcType=SMALLINT},
+      employee_type = #{employeeType,jdbcType=SMALLINT},
+      duty_date = #{dutyDate,jdbcType=TIMESTAMP},
+      email = #{email,jdbcType=VARCHAR},
+      organization = #{organization,jdbcType=VARCHAR},
+      department = #{department,jdbcType=VARCHAR},
+      office_location = #{officeLocation,jdbcType=VARCHAR},
+      post = #{post,jdbcType=INTEGER},
+      app_password = #{appPassword,jdbcType=VARCHAR},
+      collection_status = #{collectionStatus,jdbcType=SMALLINT},
+      authentication_status = #{authenticationStatus,jdbcType=SMALLINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      if_delete = #{ifDelete,jdbcType=SMALLINT},
+      authorized_state = #{authorizedState,jdbcType=SMALLINT},
+      image_path = #{imagePath,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=INTEGER},
+      create_user = #{createUser,jdbcType=INTEGER},
+      update_user = #{updateUser,jdbcType=INTEGER},
+      identity_flag = #{identityFlag,jdbcType=SMALLINT},
+      account_password = #{accountPassword,jdbcType=SMALLINT},
+      active = #{active,jdbcType=SMALLINT},
+      app_id = #{appId,jdbcType=INTEGER},
+      work_area_str = #{workAreaStr,jdbcType=VARCHAR},
+      integral = #{integral,jdbcType=BIGINT},
+      integral_update_time = #{integralUpdateTime,jdbcType=TIMESTAMP},
+      head_path = #{headPath,jdbcType=VARCHAR},
+      employee_status = #{employeeStatus,jdbcType=SMALLINT},
+      skill = #{skill,jdbcType=VARCHAR},
+      face_author_image = #{faceAuthorImage,jdbcType=VARCHAR}
+    where employee_id = #{employeeId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.ecps.seckill.pojo.Employee">
+    <id column="employee_id" jdbcType="INTEGER" property="employeeId" />
+    <result column="employee_zh_name" jdbcType="VARCHAR" property="employeeZhName" />
+    <result column="employee_code" jdbcType="VARCHAR" property="employeeCode" />
+    <result column="employee_cn_name" jdbcType="VARCHAR" property="employeeCnName" />
+    <result column="employee_password" jdbcType="VARCHAR" property="employeePassword" />
+    <result column="sex" jdbcType="SMALLINT" property="sex" />
+    <result column="mobile_phone" jdbcType="VARCHAR" property="mobilePhone" />
+    <result column="worke_status" jdbcType="SMALLINT" property="workeStatus" />
+    <result column="employee_type" jdbcType="SMALLINT" property="employeeType" />
+    <result column="duty_date" jdbcType="TIMESTAMP" property="dutyDate" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="organization" jdbcType="VARCHAR" property="organization" />
+    <result column="department" jdbcType="VARCHAR" property="department" />
+    <result column="office_location" jdbcType="VARCHAR" property="officeLocation" />
+    <result column="post" jdbcType="VARCHAR" property="post" />
+    <result column="app_password" jdbcType="VARCHAR" property="appPassword" />
+    <result column="collection_status" jdbcType="SMALLINT" property="collectionStatus" />
+    <result column="authentication_status" jdbcType="SMALLINT" property="authenticationStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="if_delete" jdbcType="SMALLINT" property="ifDelete" />
+    <result column="authorized_state" jdbcType="SMALLINT" property="authorizedState" />
+    <result column="image_path" jdbcType="VARCHAR" property="imagePath" />
+    <result column="role_id" jdbcType="INTEGER" property="roleId" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+    <result column="identity_flag" jdbcType="SMALLINT" property="identityFlag" />
+    <result column="account_password" jdbcType="SMALLINT" property="accountPassword" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    employee_id, employee_zh_name, employee_code, employee_cn_name, employee_password, 
+    sex, mobile_phone, worke_status, employee_type, duty_date, email, organization, department, 
+    office_location, post, app_password, collection_status, authentication_status, create_time, 
+    update_time, if_delete, authorized_state, image_path, role_id, create_user, update_user, 
+    identity_flag, account_password
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from i_employee
+    where employee_id = #{employeeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from i_employee
+    where employee_id = #{employeeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ecps.seckill.pojo.Employee">
+    insert into i_employee (employee_id, employee_zh_name, employee_code, 
+      employee_cn_name, employee_password, sex, 
+      mobile_phone, worke_status, employee_type, 
+      duty_date, email, organization, 
+      department, office_location, post, 
+      app_password, collection_status, authentication_status, 
+      create_time, update_time, if_delete, 
+      authorized_state, image_path, role_id, 
+      create_user, update_user, identity_flag, 
+      account_password)
+    values (#{employeeId,jdbcType=INTEGER}, #{employeeZhName,jdbcType=VARCHAR}, #{employeeCode,jdbcType=VARCHAR}, 
+      #{employeeCnName,jdbcType=VARCHAR}, #{employeePassword,jdbcType=VARCHAR}, #{sex,jdbcType=SMALLINT}, 
+      #{mobilePhone,jdbcType=VARCHAR}, #{workeStatus,jdbcType=SMALLINT}, #{employeeType,jdbcType=SMALLINT}, 
+      #{dutyDate,jdbcType=TIMESTAMP}, #{email,jdbcType=VARCHAR}, #{organization,jdbcType=VARCHAR}, 
+      #{department,jdbcType=VARCHAR}, #{officeLocation,jdbcType=VARCHAR}, #{post,jdbcType=VARCHAR}, 
+      #{appPassword,jdbcType=VARCHAR}, #{collectionStatus,jdbcType=SMALLINT}, #{authenticationStatus,jdbcType=SMALLINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{ifDelete,jdbcType=SMALLINT}, 
+      #{authorizedState,jdbcType=SMALLINT}, #{imagePath,jdbcType=VARCHAR}, #{roleId,jdbcType=INTEGER}, 
+      #{createUser,jdbcType=INTEGER}, #{updateUser,jdbcType=INTEGER}, #{identityFlag,jdbcType=SMALLINT}, 
+      #{accountPassword,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ecps.seckill.pojo.Employee">
+    insert into i_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="employeeId != null">
+        employee_id,
+      </if>
+      <if test="employeeZhName != null">
+        employee_zh_name,
+      </if>
+      <if test="employeeCode != null">
+        employee_code,
+      </if>
+      <if test="employeeCnName != null">
+        employee_cn_name,
+      </if>
+      <if test="employeePassword != null">
+        employee_password,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="mobilePhone != null">
+        mobile_phone,
+      </if>
+      <if test="workeStatus != null">
+        worke_status,
+      </if>
+      <if test="employeeType != null">
+        employee_type,
+      </if>
+      <if test="dutyDate != null">
+        duty_date,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="organization != null">
+        organization,
+      </if>
+      <if test="department != null">
+        department,
+      </if>
+      <if test="officeLocation != null">
+        office_location,
+      </if>
+      <if test="post != null">
+        post,
+      </if>
+      <if test="appPassword != null">
+        app_password,
+      </if>
+      <if test="collectionStatus != null">
+        collection_status,
+      </if>
+      <if test="authenticationStatus != null">
+        authentication_status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="ifDelete != null">
+        if_delete,
+      </if>
+      <if test="authorizedState != null">
+        authorized_state,
+      </if>
+      <if test="imagePath != null">
+        image_path,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="identityFlag != null">
+        identity_flag,
+      </if>
+      <if test="accountPassword != null">
+        account_password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="employeeId != null">
+        #{employeeId,jdbcType=INTEGER},
+      </if>
+      <if test="employeeZhName != null">
+        #{employeeZhName,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeCode != null">
+        #{employeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeCnName != null">
+        #{employeeCnName,jdbcType=VARCHAR},
+      </if>
+      <if test="employeePassword != null">
+        #{employeePassword,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=SMALLINT},
+      </if>
+      <if test="mobilePhone != null">
+        #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="workeStatus != null">
+        #{workeStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="employeeType != null">
+        #{employeeType,jdbcType=SMALLINT},
+      </if>
+      <if test="dutyDate != null">
+        #{dutyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="organization != null">
+        #{organization,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null">
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="officeLocation != null">
+        #{officeLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="post != null">
+        #{post,jdbcType=VARCHAR},
+      </if>
+      <if test="appPassword != null">
+        #{appPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="collectionStatus != null">
+        #{collectionStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="authenticationStatus != null">
+        #{authenticationStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifDelete != null">
+        #{ifDelete,jdbcType=SMALLINT},
+      </if>
+      <if test="authorizedState != null">
+        #{authorizedState,jdbcType=SMALLINT},
+      </if>
+      <if test="imagePath != null">
+        #{imagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=INTEGER},
+      </if>
+      <if test="identityFlag != null">
+        #{identityFlag,jdbcType=SMALLINT},
+      </if>
+      <if test="accountPassword != null">
+        #{accountPassword,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ecps.seckill.pojo.Employee">
+    update i_employee
+    <set>
+      <if test="employeeZhName != null">
+        employee_zh_name = #{employeeZhName,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeCode != null">
+        employee_code = #{employeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeCnName != null">
+        employee_cn_name = #{employeeCnName,jdbcType=VARCHAR},
+      </if>
+      <if test="employeePassword != null">
+        employee_password = #{employeePassword,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=SMALLINT},
+      </if>
+      <if test="mobilePhone != null">
+        mobile_phone = #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="workeStatus != null">
+        worke_status = #{workeStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="employeeType != null">
+        employee_type = #{employeeType,jdbcType=SMALLINT},
+      </if>
+      <if test="dutyDate != null">
+        duty_date = #{dutyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="organization != null">
+        organization = #{organization,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null">
+        department = #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="officeLocation != null">
+        office_location = #{officeLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="post != null">
+        post = #{post,jdbcType=VARCHAR},
+      </if>
+      <if test="appPassword != null">
+        app_password = #{appPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="collectionStatus != null">
+        collection_status = #{collectionStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="authenticationStatus != null">
+        authentication_status = #{authenticationStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifDelete != null">
+        if_delete = #{ifDelete,jdbcType=SMALLINT},
+      </if>
+      <if test="authorizedState != null">
+        authorized_state = #{authorizedState,jdbcType=SMALLINT},
+      </if>
+      <if test="imagePath != null">
+        image_path = #{imagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=INTEGER},
+      </if>
+      <if test="identityFlag != null">
+        identity_flag = #{identityFlag,jdbcType=SMALLINT},
+      </if>
+      <if test="accountPassword != null">
+        account_password = #{accountPassword,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where employee_id = #{employeeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ecps.seckill.pojo.Employee">
+    update i_employee
+    set employee_zh_name = #{employeeZhName,jdbcType=VARCHAR},
+      employee_code = #{employeeCode,jdbcType=VARCHAR},
+      employee_cn_name = #{employeeCnName,jdbcType=VARCHAR},
+      employee_password = #{employeePassword,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=SMALLINT},
+      mobile_phone = #{mobilePhone,jdbcType=VARCHAR},
+      worke_status = #{workeStatus,jdbcType=SMALLINT},
+      employee_type = #{employeeType,jdbcType=SMALLINT},
+      duty_date = #{dutyDate,jdbcType=TIMESTAMP},
+      email = #{email,jdbcType=VARCHAR},
+      organization = #{organization,jdbcType=VARCHAR},
+      department = #{department,jdbcType=VARCHAR},
+      office_location = #{officeLocation,jdbcType=VARCHAR},
+      post = #{post,jdbcType=VARCHAR},
+      app_password = #{appPassword,jdbcType=VARCHAR},
+      collection_status = #{collectionStatus,jdbcType=SMALLINT},
+      authentication_status = #{authenticationStatus,jdbcType=SMALLINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      if_delete = #{ifDelete,jdbcType=SMALLINT},
+      authorized_state = #{authorizedState,jdbcType=SMALLINT},
+      image_path = #{imagePath,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=INTEGER},
+      create_user = #{createUser,jdbcType=INTEGER},
+      update_user = #{updateUser,jdbcType=INTEGER},
+      identity_flag = #{identityFlag,jdbcType=SMALLINT},
+      account_password = #{accountPassword,jdbcType=SMALLINT}
+    where employee_id = #{employeeId,jdbcType=INTEGER}
+  </update>
+</mapper>
