@@ -1,0 +1,4 @@
+com\ecps\seckill\mapper\MenuDemoMapper.class
+com\ecps\seckill\pojo\MenuDemo.class
+com\ecps\seckill\pojo\UserDemo.class
+com\ecps\seckill\mapper\UserDemoMapper.class
