@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ecps.seckill.mapper.BasicMapper" >
+  <resultMap id="BaseResultMap" type="com.ecps.seckill.pojo.Basic" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="vehicle_number" property="vehicleNumber" jdbcType="VARCHAR" />
+    <result column="conveyance_type" property="conveyanceType" jdbcType="INTEGER" />
+    <result column="conveyance_code" property="conveyanceCode" jdbcType="VARCHAR" />
+    <result column="transport_charge" property="transportCharge" jdbcType="VARCHAR" />
+    <result column="phone1" property="phone1" jdbcType="VARCHAR" />
+    <result column="phone2" property="phone2" jdbcType="VARCHAR" />
+    <result column="car_team" property="carTeam" jdbcType="VARCHAR" />
+    <result column="limit_carry" property="limitCarry" jdbcType="VARCHAR" />
+    <result column="gasoline_wastage" property="gasolineWastage" jdbcType="VARCHAR" />
+    <result column="car_color" property="carColor" jdbcType="VARCHAR" />
+    <result column="net_weight" property="netWeight" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="update_person_id" property="updatePersonId" jdbcType="INTEGER" />
+    <result column="update_person_name" property="updatePersonName" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="enterprise_id" property="enterpriseId" jdbcType="INTEGER" />
+    <result column="rubbish_type" property="rubbishType" jdbcType="VARCHAR" />
+    <result column="equipment_id" property="equipmentId" jdbcType="INTEGER" />
+    <result column="lock_equipment_id" property="lockEquipmentId" jdbcType="INTEGER" />
+    <result column="special_code" property="specialCode" jdbcType="VARCHAR" />
+    <result column="vehicle_video_equ_id" property="vehicleVideoEquId" jdbcType="INTEGER" />
+    <result column="rubbish_type_zh" property="rubbishTypeZh" jdbcType="VARCHAR" />
+    <result column="is_new" property="isNew" jdbcType="INTEGER" />
+    <result column="czid" property="czid" jdbcType="INTEGER" />
+    <result column="rfid" property="rfid" jdbcType="VARCHAR" />
+    <result column="drive_name" property="driveName" jdbcType="VARCHAR" />
+    <result column="pizhong" property="pizhong" jdbcType="DOUBLE" />
+    <result column="lng" property="lng" jdbcType="DOUBLE" />
+    <result column="lat" property="lat" jdbcType="DOUBLE" />
+    <result column="bearing_limit" property="bearingLimit" jdbcType="VARCHAR" />
+    <result column="conveyance_name" property="conveyanceName" jdbcType="VARCHAR" />
+    <result column="limit_begin" property="limitBegin" jdbcType="TIMESTAMP" />
+    <result column="limit_end" property="limitEnd" jdbcType="TIMESTAMP" />
+    <result column="car_body_type" property="carBodyType" jdbcType="VARCHAR" />
+    <result column="car_size" property="carSize" jdbcType="VARCHAR" />
+    <result column="car_body_size" property="carBodySize" jdbcType="VARCHAR" />
+    <result column="shenhe" property="shenhe" jdbcType="VARCHAR" />
+    <result column="shenhe_msg" property="shenheMsg" jdbcType="VARCHAR" />
+    <result column="cargo_type" property="cargoType" jdbcType="INTEGER" />
+    <result column="enterprisi_id_china" property="enterprisiIdChina" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, vehicle_number, conveyance_type, conveyance_code, transport_charge, phone1, phone2, 
+    car_team, limit_carry, gasoline_wastage, car_color, net_weight, status, remark, update_person_id, 
+    update_person_name, update_time, enterprise_id, rubbish_type, equipment_id, lock_equipment_id, 
+    special_code, vehicle_video_equ_id, rubbish_type_zh, is_new, czid, rfid, drive_name, 
+    pizhong, lng, lat, bearing_limit, conveyance_name, limit_begin, limit_end, car_body_type, 
+    car_size, car_body_size, shenhe, shenhe_msg, cargo_type, enterprisi_id_china
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from car_basic
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from car_basic
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ecps.seckill.pojo.Basic" >
+    insert into car_basic (id, vehicle_number, conveyance_type, 
+      conveyance_code, transport_charge, phone1, 
+      phone2, car_team, limit_carry, 
+      gasoline_wastage, car_color, net_weight, 
+      status, remark, update_person_id, 
+      update_person_name, update_time, enterprise_id, 
+      rubbish_type, equipment_id, lock_equipment_id, 
+      special_code, vehicle_video_equ_id, rubbish_type_zh, 
+      is_new, czid, rfid, 
+      drive_name, pizhong, lng, 
+      lat, bearing_limit, conveyance_name, 
+      limit_begin, limit_end, car_body_type, 
+      car_size, car_body_size, shenhe, 
+      shenhe_msg, cargo_type, enterprisi_id_china
+      )
+    values (#{id,jdbcType=INTEGER}, #{vehicleNumber,jdbcType=VARCHAR}, #{conveyanceType,jdbcType=INTEGER}, 
+      #{conveyanceCode,jdbcType=VARCHAR}, #{transportCharge,jdbcType=VARCHAR}, #{phone1,jdbcType=VARCHAR}, 
+      #{phone2,jdbcType=VARCHAR}, #{carTeam,jdbcType=VARCHAR}, #{limitCarry,jdbcType=VARCHAR}, 
+      #{gasolineWastage,jdbcType=VARCHAR}, #{carColor,jdbcType=VARCHAR}, #{netWeight,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{updatePersonId,jdbcType=INTEGER}, 
+      #{updatePersonName,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{enterpriseId,jdbcType=INTEGER}, 
+      #{rubbishType,jdbcType=VARCHAR}, #{equipmentId,jdbcType=INTEGER}, #{lockEquipmentId,jdbcType=INTEGER}, 
+      #{specialCode,jdbcType=VARCHAR}, #{vehicleVideoEquId,jdbcType=INTEGER}, #{rubbishTypeZh,jdbcType=VARCHAR}, 
+      #{isNew,jdbcType=INTEGER}, #{czid,jdbcType=INTEGER}, #{rfid,jdbcType=VARCHAR}, 
+      #{driveName,jdbcType=VARCHAR}, #{pizhong,jdbcType=DOUBLE}, #{lng,jdbcType=DOUBLE}, 
+      #{lat,jdbcType=DOUBLE}, #{bearingLimit,jdbcType=VARCHAR}, #{conveyanceName,jdbcType=VARCHAR}, 
+      #{limitBegin,jdbcType=TIMESTAMP}, #{limitEnd,jdbcType=TIMESTAMP}, #{carBodyType,jdbcType=VARCHAR}, 
+      #{carSize,jdbcType=VARCHAR}, #{carBodySize,jdbcType=VARCHAR}, #{shenhe,jdbcType=VARCHAR}, 
+      #{shenheMsg,jdbcType=VARCHAR}, #{cargoType,jdbcType=INTEGER}, #{enterprisiIdChina,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ecps.seckill.pojo.Basic" >
+    insert into car_basic
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="vehicleNumber != null" >
+        vehicle_number,
+      </if>
+      <if test="conveyanceType != null" >
+        conveyance_type,
+      </if>
+      <if test="conveyanceCode != null" >
+        conveyance_code,
+      </if>
+      <if test="transportCharge != null" >
+        transport_charge,
+      </if>
+      <if test="phone1 != null" >
+        phone1,
+      </if>
+      <if test="phone2 != null" >
+        phone2,
+      </if>
+      <if test="carTeam != null" >
+        car_team,
+      </if>
+      <if test="limitCarry != null" >
+        limit_carry,
+      </if>
+      <if test="gasolineWastage != null" >
+        gasoline_wastage,
+      </if>
+      <if test="carColor != null" >
+        car_color,
+      </if>
+      <if test="netWeight != null" >
+        net_weight,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="updatePersonId != null" >
+        update_person_id,
+      </if>
+      <if test="updatePersonName != null" >
+        update_person_name,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="enterpriseId != null" >
+        enterprise_id,
+      </if>
+      <if test="rubbishType != null" >
+        rubbish_type,
+      </if>
+      <if test="equipmentId != null" >
+        equipment_id,
+      </if>
+      <if test="lockEquipmentId != null" >
+        lock_equipment_id,
+      </if>
+      <if test="specialCode != null" >
+        special_code,
+      </if>
+      <if test="vehicleVideoEquId != null" >
+        vehicle_video_equ_id,
+      </if>
+      <if test="rubbishTypeZh != null" >
+        rubbish_type_zh,
+      </if>
+      <if test="isNew != null" >
+        is_new,
+      </if>
+      <if test="czid != null" >
+        czid,
+      </if>
+      <if test="rfid != null" >
+        rfid,
+      </if>
+      <if test="driveName != null" >
+        drive_name,
+      </if>
+      <if test="pizhong != null" >
+        pizhong,
+      </if>
+      <if test="lng != null" >
+        lng,
+      </if>
+      <if test="lat != null" >
+        lat,
+      </if>
+      <if test="bearingLimit != null" >
+        bearing_limit,
+      </if>
+      <if test="conveyanceName != null" >
+        conveyance_name,
+      </if>
+      <if test="limitBegin != null" >
+        limit_begin,
+      </if>
+      <if test="limitEnd != null" >
+        limit_end,
+      </if>
+      <if test="carBodyType != null" >
+        car_body_type,
+      </if>
+      <if test="carSize != null" >
+        car_size,
+      </if>
+      <if test="carBodySize != null" >
+        car_body_size,
+      </if>
+      <if test="shenhe != null" >
+        shenhe,
+      </if>
+      <if test="shenheMsg != null" >
+        shenhe_msg,
+      </if>
+      <if test="cargoType != null" >
+        cargo_type,
+      </if>
+      <if test="enterprisiIdChina != null" >
+        enterprisi_id_china,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="vehicleNumber != null" >
+        #{vehicleNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="conveyanceType != null" >
+        #{conveyanceType,jdbcType=INTEGER},
+      </if>
+      <if test="conveyanceCode != null" >
+        #{conveyanceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transportCharge != null" >
+        #{transportCharge,jdbcType=VARCHAR},
+      </if>
+      <if test="phone1 != null" >
+        #{phone1,jdbcType=VARCHAR},
+      </if>
+      <if test="phone2 != null" >
+        #{phone2,jdbcType=VARCHAR},
+      </if>
+      <if test="carTeam != null" >
+        #{carTeam,jdbcType=VARCHAR},
+      </if>
+      <if test="limitCarry != null" >
+        #{limitCarry,jdbcType=VARCHAR},
+      </if>
+      <if test="gasolineWastage != null" >
+        #{gasolineWastage,jdbcType=VARCHAR},
+      </if>
+      <if test="carColor != null" >
+        #{carColor,jdbcType=VARCHAR},
+      </if>
+      <if test="netWeight != null" >
+        #{netWeight,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePersonId != null" >
+        #{updatePersonId,jdbcType=INTEGER},
+      </if>
+      <if test="updatePersonName != null" >
+        #{updatePersonName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enterpriseId != null" >
+        #{enterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="rubbishType != null" >
+        #{rubbishType,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentId != null" >
+        #{equipmentId,jdbcType=INTEGER},
+      </if>
+      <if test="lockEquipmentId != null" >
+        #{lockEquipmentId,jdbcType=INTEGER},
+      </if>
+      <if test="specialCode != null" >
+        #{specialCode,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleVideoEquId != null" >
+        #{vehicleVideoEquId,jdbcType=INTEGER},
+      </if>
+      <if test="rubbishTypeZh != null" >
+        #{rubbishTypeZh,jdbcType=VARCHAR},
+      </if>
+      <if test="isNew != null" >
+        #{isNew,jdbcType=INTEGER},
+      </if>
+      <if test="czid != null" >
+        #{czid,jdbcType=INTEGER},
+      </if>
+      <if test="rfid != null" >
+        #{rfid,jdbcType=VARCHAR},
+      </if>
+      <if test="driveName != null" >
+        #{driveName,jdbcType=VARCHAR},
+      </if>
+      <if test="pizhong != null" >
+        #{pizhong,jdbcType=DOUBLE},
+      </if>
+      <if test="lng != null" >
+        #{lng,jdbcType=DOUBLE},
+      </if>
+      <if test="lat != null" >
+        #{lat,jdbcType=DOUBLE},
+      </if>
+      <if test="bearingLimit != null" >
+        #{bearingLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="conveyanceName != null" >
+        #{conveyanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="limitBegin != null" >
+        #{limitBegin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="limitEnd != null" >
+        #{limitEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carBodyType != null" >
+        #{carBodyType,jdbcType=VARCHAR},
+      </if>
+      <if test="carSize != null" >
+        #{carSize,jdbcType=VARCHAR},
+      </if>
+      <if test="carBodySize != null" >
+        #{carBodySize,jdbcType=VARCHAR},
+      </if>
+      <if test="shenhe != null" >
+        #{shenhe,jdbcType=VARCHAR},
+      </if>
+      <if test="shenheMsg != null" >
+        #{shenheMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="cargoType != null" >
+        #{cargoType,jdbcType=INTEGER},
+      </if>
+      <if test="enterprisiIdChina != null" >
+        #{enterprisiIdChina,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ecps.seckill.pojo.Basic" >
+    update car_basic
+    <set >
+      <if test="vehicleNumber != null" >
+        vehicle_number = #{vehicleNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="conveyanceType != null" >
+        conveyance_type = #{conveyanceType,jdbcType=INTEGER},
+      </if>
+      <if test="conveyanceCode != null" >
+        conveyance_code = #{conveyanceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transportCharge != null" >
+        transport_charge = #{transportCharge,jdbcType=VARCHAR},
+      </if>
+      <if test="phone1 != null" >
+        phone1 = #{phone1,jdbcType=VARCHAR},
+      </if>
+      <if test="phone2 != null" >
+        phone2 = #{phone2,jdbcType=VARCHAR},
+      </if>
+      <if test="carTeam != null" >
+        car_team = #{carTeam,jdbcType=VARCHAR},
+      </if>
+      <if test="limitCarry != null" >
+        limit_carry = #{limitCarry,jdbcType=VARCHAR},
+      </if>
+      <if test="gasolineWastage != null" >
+        gasoline_wastage = #{gasolineWastage,jdbcType=VARCHAR},
+      </if>
+      <if test="carColor != null" >
+        car_color = #{carColor,jdbcType=VARCHAR},
+      </if>
+      <if test="netWeight != null" >
+        net_weight = #{netWeight,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePersonId != null" >
+        update_person_id = #{updatePersonId,jdbcType=INTEGER},
+      </if>
+      <if test="updatePersonName != null" >
+        update_person_name = #{updatePersonName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enterpriseId != null" >
+        enterprise_id = #{enterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="rubbishType != null" >
+        rubbish_type = #{rubbishType,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentId != null" >
+        equipment_id = #{equipmentId,jdbcType=INTEGER},
+      </if>
+      <if test="lockEquipmentId != null" >
+        lock_equipment_id = #{lockEquipmentId,jdbcType=INTEGER},
+      </if>
+      <if test="specialCode != null" >
+        special_code = #{specialCode,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleVideoEquId != null" >
+        vehicle_video_equ_id = #{vehicleVideoEquId,jdbcType=INTEGER},
+      </if>
+      <if test="rubbishTypeZh != null" >
+        rubbish_type_zh = #{rubbishTypeZh,jdbcType=VARCHAR},
+      </if>
+      <if test="isNew != null" >
+        is_new = #{isNew,jdbcType=INTEGER},
+      </if>
+      <if test="czid != null" >
+        czid = #{czid,jdbcType=INTEGER},
+      </if>
+      <if test="rfid != null" >
+        rfid = #{rfid,jdbcType=VARCHAR},
+      </if>
+      <if test="driveName != null" >
+        drive_name = #{driveName,jdbcType=VARCHAR},
+      </if>
+      <if test="pizhong != null" >
+        pizhong = #{pizhong,jdbcType=DOUBLE},
+      </if>
+      <if test="lng != null" >
+        lng = #{lng,jdbcType=DOUBLE},
+      </if>
+      <if test="lat != null" >
+        lat = #{lat,jdbcType=DOUBLE},
+      </if>
+      <if test="bearingLimit != null" >
+        bearing_limit = #{bearingLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="conveyanceName != null" >
+        conveyance_name = #{conveyanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="limitBegin != null" >
+        limit_begin = #{limitBegin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="limitEnd != null" >
+        limit_end = #{limitEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carBodyType != null" >
+        car_body_type = #{carBodyType,jdbcType=VARCHAR},
+      </if>
+      <if test="carSize != null" >
+        car_size = #{carSize,jdbcType=VARCHAR},
+      </if>
+      <if test="carBodySize != null" >
+        car_body_size = #{carBodySize,jdbcType=VARCHAR},
+      </if>
+      <if test="shenhe != null" >
+        shenhe = #{shenhe,jdbcType=VARCHAR},
+      </if>
+      <if test="shenheMsg != null" >
+        shenhe_msg = #{shenheMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="cargoType != null" >
+        cargo_type = #{cargoType,jdbcType=INTEGER},
+      </if>
+      <if test="enterprisiIdChina != null" >
+        enterprisi_id_china = #{enterprisiIdChina,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ecps.seckill.pojo.Basic" >
+    update car_basic
+    set vehicle_number = #{vehicleNumber,jdbcType=VARCHAR},
+      conveyance_type = #{conveyanceType,jdbcType=INTEGER},
+      conveyance_code = #{conveyanceCode,jdbcType=VARCHAR},
+      transport_charge = #{transportCharge,jdbcType=VARCHAR},
+      phone1 = #{phone1,jdbcType=VARCHAR},
+      phone2 = #{phone2,jdbcType=VARCHAR},
+      car_team = #{carTeam,jdbcType=VARCHAR},
+      limit_carry = #{limitCarry,jdbcType=VARCHAR},
+      gasoline_wastage = #{gasolineWastage,jdbcType=VARCHAR},
+      car_color = #{carColor,jdbcType=VARCHAR},
+      net_weight = #{netWeight,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      update_person_id = #{updatePersonId,jdbcType=INTEGER},
+      update_person_name = #{updatePersonName,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      enterprise_id = #{enterpriseId,jdbcType=INTEGER},
+      rubbish_type = #{rubbishType,jdbcType=VARCHAR},
+      equipment_id = #{equipmentId,jdbcType=INTEGER},
+      lock_equipment_id = #{lockEquipmentId,jdbcType=INTEGER},
+      special_code = #{specialCode,jdbcType=VARCHAR},
+      vehicle_video_equ_id = #{vehicleVideoEquId,jdbcType=INTEGER},
+      rubbish_type_zh = #{rubbishTypeZh,jdbcType=VARCHAR},
+      is_new = #{isNew,jdbcType=INTEGER},
+      czid = #{czid,jdbcType=INTEGER},
+      rfid = #{rfid,jdbcType=VARCHAR},
+      drive_name = #{driveName,jdbcType=VARCHAR},
+      pizhong = #{pizhong,jdbcType=DOUBLE},
+      lng = #{lng,jdbcType=DOUBLE},
+      lat = #{lat,jdbcType=DOUBLE},
+      bearing_limit = #{bearingLimit,jdbcType=VARCHAR},
+      conveyance_name = #{conveyanceName,jdbcType=VARCHAR},
+      limit_begin = #{limitBegin,jdbcType=TIMESTAMP},
+      limit_end = #{limitEnd,jdbcType=TIMESTAMP},
+      car_body_type = #{carBodyType,jdbcType=VARCHAR},
+      car_size = #{carSize,jdbcType=VARCHAR},
+      car_body_size = #{carBodySize,jdbcType=VARCHAR},
+      shenhe = #{shenhe,jdbcType=VARCHAR},
+      shenhe_msg = #{shenheMsg,jdbcType=VARCHAR},
+      cargo_type = #{cargoType,jdbcType=INTEGER},
+      enterprisi_id_china = #{enterprisiIdChina,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
