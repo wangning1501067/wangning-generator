@@ -24,6 +24,7 @@
                 userId="${jdbc.userId}"
                 password="${jdbc.password}">
             <property name="serverTimezone" value="UTC"/>
+            <!--nullCatalogMeansCurrent:解决mysql下xml生成重复方法-->
             <property name="nullCatalogMeansCurrent" value="true"/>
         </jdbcConnection>
 
@@ -73,7 +74,7 @@
         <!--tableName:指定了表名
             domainObjectName:指定了实体类的名称
         -->
-        <!--schema:oracle指定生成表在哪个模型下面-->
+        <!--schema:oracle指定生成表在哪个模型下面，解决xml生成重复方法-->
         <table schema="SCOTT" tableName="Car_basic" domainObjectName="Basic"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
